@@ -1,17 +1,18 @@
-import React,{useState, Fragment} from 'react';
+import React, { useState, Fragment } from 'react';
+import { Button, Table } from 'react-bootstrap';
 
 
-function Users(){
-    
+function Users() {
+
     const [user, setUser] = useState([
-        {name : 'ravi', age: '26', address: 'Canada'},
-        {name : 'John', age: '16', address: 'Bhay'},
-        {name : 'Peter', age: '20', address: 'Mira'},
-        {name : 'Goku', age: '40', address: 'Goa'},
-        {name : 'Luffy', age: '18', address: 'USA'},
+        { name: 'ravi', age: '26', address: 'Canada' },
+        { name: 'John', age: '16', address: 'Bhay' },
+        { name: 'Peter', age: '20', address: 'Mira' },
+        { name: 'Goku', age: '40', address: 'Goa' },
+        { name: 'Luffy', age: '18', address: 'USA' },
     ]);
-    
-    return(
+
+    return (
 
         // if we want not to get div tag then we can use
         // like <> </> - this is a way of writing tag
@@ -32,12 +33,41 @@ function Users(){
             </h1>
 
 
-            {
+            {/* <Button variant="primary">Primary</Button>{' '} */}
+
+
+
+
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        user.map((item,i) => 
+                            <tr key={i}>
+                                <td>{i}</td>
+                                <td>{item.name}</td>
+                                <td>{item.age}</td>
+                                <td>{item.address}</td>
+                            </tr>
+                        )
+                    }
+                </tbody>
+            </Table>
+
+            {/* Conditions */}
+            {/* {
                 user.length===5?<div>Yes, this is right </div>:<div>No, this is wrong</div> 
-            }
+            } */}
 
 
-
+            {/* LIST */}
             {/* {
                 user.map((item, i) => 
                 // key is for uniqueness
