@@ -16,7 +16,15 @@ function Users(){
             <h1>
                 User Listing is here
             </h1>
+
+
             {
+                user.length===5?<div>Yes, this is right </div>:<div>No, this is wrong</div> 
+            }
+
+
+
+            {/* {
                 user.map((item, i) => 
                 // key is for uniqueness
                     <div key={i}>
@@ -25,7 +33,7 @@ function Users(){
                         <span>{item.address}</span>
                     </div>
                 )
-            }
+            } */}
         </div>
     )
 }
