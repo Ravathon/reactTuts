@@ -10,9 +10,14 @@ function App() {
   return (
     <div className="App">
       <h1>Hellow</h1>
+      <Contact></Contact>
+
+
+
+      {/* PROPS */}
       {/* <About name = {name}/> */}
-      <button onClick={() => setName('raviaaan')}>Update Props</button>
-      <Contact name={name}/>
+      {/* <button onClick={() => setName('raviaaan')}>Update Props</button> */}
+      {/* <Contact name={name}/> */}
     </div>
   );
 }
