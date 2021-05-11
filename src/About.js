@@ -9,14 +9,15 @@ class About extends React.Component{
         super(props);
 
 
-        this.state = {
-            name: 'ravi',
-            age: 26
-        }
+        // STATES
+        // this.state = {
+        //     name: 'ravi',
+        //     age: 26
+        // }
     }
 
     componentDidMount(){
-        console.warn('Component did mount.')
+        console.warn('Component did mount.  ' + this.props.name)
     }
 
     componentWillUnmount(){
@@ -25,9 +26,9 @@ class About extends React.Component{
 
     // on setState() - componentDidUpdate() is called
     componentDidUpdate(){
-        console.warn('Component did update.')
+        console.warn('Component did update.  ' + this.props.name)
 
-        alert("Name is updated")
+       // alert("Name is updated")
     }
 
 
@@ -35,10 +36,16 @@ class About extends React.Component{
         return(
             <div>
                 <h1>About us component</h1>
-                <h2>{this.state.name}</h2>
+
+
+                <h2>{this.props.name}</h2>
+
+
+                 {/* States */}
+                {/* <h2>{this.state.name}</h2>
                 <h2>{this.state.age}</h2>
 
-                <button onClick={() => {this.setState({name: 'ravi rocks'})}}>Update State</button>
+                <button onClick={() => {this.setState({name: 'ravi rocks'})}}>Update State</button> */}
             </div>
         )
     }
