@@ -3,7 +3,7 @@ import './App.css';
 import About from './About'
 import Contact from './Contact';
 import Users from './Users';
-
+import CreateUser from './CreateUser';
 
 function App() {
 
@@ -12,7 +12,11 @@ function App() {
   return (
     <div className="App">
       <h1>Hellow</h1>
-      <Users />
+
+      <CreateUser />
+
+
+      {/* <Users /> */}
 
 
 
