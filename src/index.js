@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+// if this doesnt work on prod then use CDN command and paste that in index.html
+// u can get cdn command from the same page where we got below import line i.e react bootstrap page
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
