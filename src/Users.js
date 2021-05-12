@@ -1,16 +1,34 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { Button, Table } from 'react-bootstrap';
 
 
 function Users() {
 
-    const [user, setUser] = useState([
-        { name: 'ravi', age: '26', address: 'Canada' },
-        { name: 'John', age: '16', address: 'Bhay' },
-        { name: 'Peter', age: '20', address: 'Mira' },
-        { name: 'Goku', age: '40', address: 'Goa' },
-        { name: 'Luffy', age: '18', address: 'USA' },
-    ]);
+    const [user, setUser] = useState([]
+
+
+         // we will fetch actual data using API
+    //     [
+    //     { name: 'ravi', age: '26', address: 'Canada' },
+    //     { name: 'John', age: '16', address: 'Bhay' },
+    //     { name: 'Peter', age: '20', address: 'Mira' },
+    //     { name: 'Goku', age: '40', address: 'Goa' },
+    //     { name: 'Luffy', age: '18', address: 'USA' },
+    // ]
+    );
+
+
+
+    // hook for restCall api to fetch detail as soon as our functional component load onto screen
+    useEffect(() => {
+        fetch("https://dummy.restapiexample.com/api/v1/employees").then((data) => {
+            data.json().then((result) => {
+                console.warn("result", result);
+                setUser(result.data);
+            })
+        })
+    },[])
+
 
     return (
 
@@ -43,20 +61,30 @@ function Users() {
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Salary</th>
                         <th>Age</th>
-                        <th>Address</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        user.map((item,i) => 
-                            <tr key={i}>
-                                <td>{i}</td>
-                                <td>{item.name}</td>
-                                <td>{item.age}</td>
-                                <td>{item.address}</td>
-                            </tr>
-                        )
+
+                        user.map((item,i) => <tr key={i}>
+                                 <td>{item.id}</td>
+                                 <td>{item.employee_name}</td>
+                                 <td>{item.employee_salary}</td>
+                                 <td>{item.employee_age}</td>
+                             </tr>)
+
+
+                        // We will fetch using API
+                        // user.map((item,i) => 
+                        //     <tr key={i}>
+                        //         <td>{i}</td>
+                        //         <td>{item.name}</td>
+                        //         <td>{item.age}</td>
+                        //         <td>{item.address}</td>
+                        //     </tr>
+                        // )
                     }
                 </tbody>
             </Table>
